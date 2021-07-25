@@ -1,3 +1,4 @@
+$DATABASE_URL = parse_url(“postgres://ofhharvznsatzo:5a9918ff8e5278112e9813cac11e841c2112fa96ca1cbdf921d9f7443a77b046@ec2-54-236-137-173.compute-1.amazonaws.com:5432/d725sh63iq5v7m”),
 <?php
 
 use Illuminate\Support\Str;
@@ -14,7 +15,6 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
     'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
@@ -80,12 +80,12 @@ return [
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
-            'url' => env('postgres://ofhharvznsatzo:5a9918ff8e5278112e9813cac11e841c2112fa96ca1cbdf921d9f7443a77b046@ec2-54-236-137-173.compute-1.amazonaws.com:5432/d725sh63iq5v7m'),
-            'host' => env('DB_HOST', 'ec2-54-236-137-173.compute-1.amazonaws.com'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'd725sh63iq5v7m'),
-            'username' => env('DB_USERNAME', 'ofhharvznsatzo'),
-            'password' => env('DB_PASSWORD', '5a9918ff8e5278112e9813cac11e841c2112fa96ca1cbdf921d9f7443a77b046'),
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '1433'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
