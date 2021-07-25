@@ -1,4 +1,3 @@
-$DATABASE_URL = parse_url(“postgres://ofhharvznsatzo:5a9918ff8e5278112e9813cac11e841c2112fa96ca1cbdf921d9f7443a77b046@ec2-54-236-137-173.compute-1.amazonaws.com:5432/d725sh63iq5v7m”),
 <?php
 
 use Illuminate\Support\Str;
@@ -15,7 +14,8 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-    'default' => env('DB_CONNECTION', 'pgsql'),
+
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -123,7 +123,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
         ],
 
         'default' => [
