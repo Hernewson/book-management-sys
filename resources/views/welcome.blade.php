@@ -412,9 +412,9 @@
                 <div class="p-5 mb-4 bg-light rounded-3">
                     <div class="container-fluid py-5">
                         <h1 class="display-5 fw-bold">Book Management System</h1>
-                        <p class="col-md-8 fs-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-                            incidunt, delectus veritatis ex deleniti beatae adipisci, magni ad voluptatum sunt
-                            asperiores rem tempora pariatur libero temporibus. Libero aperiam nam incidunt!</p>
+                        <p class="col-md-8 fs-4">Please, allow all the cookies for this site otherwise it might not run
+                            smoothly. In my case I encountered an issue while registering on this site. However it works
+                            fine on firefox it works just fine.</p>
                         <a href="{{ url('/home') }}" class="btn btn-primary btn-lg" type="button">Get Started..</a>
                     </div>
                 </div>

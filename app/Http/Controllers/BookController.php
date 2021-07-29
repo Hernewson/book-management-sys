@@ -10,6 +10,7 @@ use App\Http\Requests\Book\UpdateBookRequest;
 
 class BookController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        return view('books.index')->with('books', Book::all());
+        $books = Book::all();
+        return response()->json(['data' => $books], 200);
+        // return view('books.index')->with('books', $books);
     }
 
     /**
@@ -38,14 +41,13 @@ class BookController extends Controller
      */
     public function store(CreateBookRequest $request)
     {
-        Book::create([
+        $book = Book::create([
             'name' => $request->name,
             'isbn' => $request->isbn
         ]);
 
-        session()->flash('success', 'Book has been added successfully.');
-
-        return redirect(route('books.index'));
+        return response()->json(['data' => $book], 201);
+        // return redirect(route('books.index'));
     }
 
     /**
@@ -54,9 +56,11 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($bookId)
     {
-        //
+        $books = Book::findOrFail($bookId);
+        return response()->json(['data' => $books], 200);
+        // return view('books.show')->with('book', Book::find($bookId));
     }
 
     /**
@@ -82,8 +86,11 @@ class BookController extends Controller
         $book->name = $request->name;
         $book->isbn = $request->isbn;
         $book->save();
-        session()->flash('success', 'Book has been updated successfully.');
-        return redirect()->back();
+        // session()->flash('success', 'Book has been updated successfully.');
+
+        return response()->json(['data' => $book], 201);
+
+        // return redirect()->back();
     }
 
     /**
@@ -95,7 +102,10 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        session()->flash('success', "Book has been removed successfully.");
-        return redirect()->back();
+        return response()->json(['data' => $book], 200);
+
+        // session()->flash('success', "Book has been removed successfully.");
+        // return redirect()->back();
+
     }
 }

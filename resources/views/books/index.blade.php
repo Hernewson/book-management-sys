@@ -25,7 +25,7 @@
                 @foreach ($books as $book)
                 <tr>
                     <td>
-                        {{$book->name}}
+                        <a href="{{route('books.show', $book->id)}}">{{$book->name}}</a>
                     </td>
                     <td>
                         {{$book->isbn}}
